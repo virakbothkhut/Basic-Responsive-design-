@@ -1,0 +1,180 @@
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 900px;
+  margin: 0 auto;
+  border: solid 1px #ccc;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "logo"
+    "header"
+    "menu"
+    "img"
+    "text"
+    "footer";
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Logo */
+.logo {
+  grid-area: logo;
+  background: lightgreen;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.logo img {
+  width: 100px;
+  height: auto;
+  border-radius: 20px;
+}
+
+/* Header and Logo */
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.header-wrapper .logo {
+  flex: 0 0 auto;
+}
+
+.header-wrapper .header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 30px;
+  margin-top: 40px;
+}
+
+/* Menu */
+.menu {
+  grid-area: menu;
+  display: flex;
+  gap: 10px;
+  text-align: center;
+  justify-content: space-around;
+  margin: 0 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.menu a:hover {
+  background-color: #ddd;
+}
+
+/* Images Section */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  margin-bottom: 40px;
+  gap: 20px;
+}
+
+.image img {
+  width: 100%;
+}
+
+/* Text Section */
+.text {
+  grid-area: text;
+  text-align: center;
+}
+
+.text h2 {
+  font-size: 1.5rem;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 1024px) {
+  /* Hide the logo on mobile */
+  .logo {
+    display: none;
+  }
+  .header
+  {
+    margin-bottom: 20px;
+  }
+
+  /* Initially hide the menu on mobile */
+  .menu {
+    display: none;
+    flex-direction: column; /* Stack the menu items vertically */
+    width: 100%;  
+  }
+
+  /* Show the hamburger on mobile */
+  .hamburger {
+    display: block;
+    margin-right: 20px;
+    margin-top: 40px;
+  }
+
+  /* Show the menu when 'active' class is added */
+  .menu.active {
+
+    display: flex; /* Menu becomes visible when active */
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Mobile layout */
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .image {
+    order: 1;
+  }
+
+  .text-container {
+    order: 2;
+  }
+}
+
+/* Large screen adjustments */
+@media screen and (min-width: 1024px) {
+  /* On large screens, always display the menu */
+  .menu {
+    display: flex; /* Ensure the menu is always visible */
+  }
+
+  /* Hide hamburger on large screens */
+  .hamburger {
+    display: none;
+  }
+}
