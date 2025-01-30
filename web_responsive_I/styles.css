@@ -1,0 +1,166 @@
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 900px;
+  margin: 0 auto;
+  border: solid 1px #ccc ;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "logo"
+    "header"
+    "menu"
+    "img"
+    "text"
+    "footer";
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Logo */
+.logo {
+  grid-area: logo;
+  background:lightgreen;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.logo img {
+  width: 100px;
+  height: auto;
+  border-radius: 20px;
+}
+
+/* Logo and Header */
+.header-wrapper {
+  display: flex; /* Use Flexbox */
+  justify-content: center; /* Center the header text */
+  align-items: center; /* Vertically align the logo and header */
+  gap: 20px; /* Add space between logo and header */
+
+}
+.header-wrapper .logo {
+  flex: 0 0 auto; /* Prevent logo from shrinking or growing */
+}
+
+.header-wrapper .header {
+  flex: 1 1 auto; /* Allows header to take available space */
+  text-align: center; /* Center header text */
+}
+
+
+/* Menu */
+.menu {
+  grid-area: menu;
+  display: flex;
+  gap: 10px;
+  text-align: center;
+  justify-content: space-around;
+  margin: 0 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.menu a:hover {
+  background-color: #ddd;
+}
+
+/* Images Section */
+.content{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  margin-bottom: 40px;
+  gap: 20px;
+}
+
+/* .image {
+  margin: auto;
+} */
+
+ .image img {
+  width: 100%;
+}
+
+
+
+/* Text Section */
+.text {
+  grid-area: text;
+  text-align: center;
+}
+
+.text h2 {
+  font-size: 1.5rem;
+}
+
+
+
+/* Mobile adjustments */
+@media screen and (max-width: 1024px) {
+  .menu {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* Two columns for smaller screens */
+    gap: 10px;
+    text-align: center;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .image {
+    order: 1;
+  }
+
+  .text-container{
+    order: 2;
+  }
+
+}
+
+/* Responsive design for >= 1024px screens */
+/* @media screen and (min-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr ;
+    grid-template-areas:
+      "logo"
+      "header"
+      "menu"
+      "main-content"
+      "footer";
+  }
+
+  .menu {
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  
+} */
